@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StampDutyCalculator.Console
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StampDutyCalculator.Lib", "StampDutyCalculator.Lib\StampDutyCalculator.Lib.csproj", "{5221B558-D0CB-43E0-81F0-63E867FB6D7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StampDutyCalculator.Tests", "StampDutyCalculator.App\StampDutyCalculator.Tests\StampDutyCalculator.Tests.csproj", "{8EDF4429-251A-416D-BB68-93F227191BCF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StampDutyCalculator.Lib.Tests", "StampDutyCalculator.App\StampDutyCalculator.Tests\StampDutyCalculator.Lib.Tests.csproj", "{8EDF4429-251A-416D-BB68-93F227191BCF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StampDuty.Console", "StampDuty.Console\StampDuty.Console.csproj", "{6E502581-CB87-4B5F-A8D2-DC894AA2EF26}"
 EndProject
