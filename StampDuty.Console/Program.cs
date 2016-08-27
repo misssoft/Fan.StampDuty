@@ -12,6 +12,7 @@ namespace StampDuty.Console
         {
             while (true)
             {
+                var price = 0.0;
                 System.Console.WriteLine("Freehold or LeaseHold");
                 System.Console.WriteLine("1. Freehold");
                 System.Console.WriteLine("2. Leasehold");
@@ -61,8 +62,7 @@ namespace StampDuty.Console
                                     {
                                         #region replacingmainhome
                                         System.Console.WriteLine("Property Price:");
-                                        var price = System.Console.ReadLine();
-
+                                        price = Convert.ToDouble(System.Console.ReadLine());
                                         System.Console.WriteLine($"Price: {price}");
                                         System.Console.WriteLine($"Replacing main property: {isReplacing}");
                                         System.Console.WriteLine($"Second Home: {isSecond}");
@@ -76,7 +76,7 @@ namespace StampDuty.Console
                                     {
                                         #region keepasSecond
                                         System.Console.WriteLine("Property Price:");
-                                        var price = System.Console.ReadLine();
+                                        price = Convert.ToDouble(System.Console.ReadLine());
                                         System.Console.WriteLine($"Price: {price}");
                                         System.Console.WriteLine($"Replacing main property: {isReplacing}");
                                         System.Console.WriteLine($"Second Home: {isSecond}");
@@ -92,7 +92,7 @@ namespace StampDuty.Console
                                 {
                                     #region FirstTimeBuyer
                                     System.Console.WriteLine("Property Price:");
-                                    var price = System.Console.ReadLine();
+                                    price = Convert.ToDouble(System.Console.ReadLine());
                                     System.Console.WriteLine($"Price: {price}");
                                     System.Console.WriteLine($"Second Home: {isSecond}");
                                     System.Console.WriteLine($"Individual: {isIndividual}");
@@ -107,7 +107,7 @@ namespace StampDuty.Console
                             {
                                 #region organisation
                                 System.Console.WriteLine("Property Price:");
-                                var price = System.Console.ReadLine();
+                                price = Convert.ToDouble(System.Console.ReadLine());
                                 System.Console.WriteLine($"Price: {price}");
                                 System.Console.WriteLine($"Individual: {isIndividual}");
                                 System.Console.WriteLine($"TransactionDate: {transactionDate}");
@@ -121,7 +121,7 @@ namespace StampDuty.Console
                         {
                         #region Before2016
                             System.Console.WriteLine("Property Price:");
-                            var price = System.Console.ReadLine();
+                            price = Convert.ToDouble(System.Console.ReadLine());
                             System.Console.WriteLine($"Price: {price}");
                             System.Console.WriteLine($"TransactionDate: {transactionDate}");
                             System.Console.WriteLine($"Residential: {isResidential}");
@@ -134,7 +134,7 @@ namespace StampDuty.Console
                     {
                         #region Non-Residential
                         System.Console.WriteLine("Property Price:");
-                        var price = System.Console.ReadLine();
+                        price = Convert.ToDouble(System.Console.ReadLine());
                         System.Console.WriteLine($"Price: {price}");
                         System.Console.WriteLine($"Residential: {isResidential}");
                         System.Console.WriteLine($"Freehold: {isFreehold}");
@@ -146,13 +146,29 @@ namespace StampDuty.Console
                 {
                 #region Leashold
                     System.Console.WriteLine("Property Price:");
-                    var price = System.Console.ReadLine();
+                    price = Convert.ToDouble(System.Console.ReadLine());
                     System.Console.WriteLine($"Price: {price}");
                     System.Console.WriteLine($"Freehold: {isFreehold}");
                     #endregion
                 }
+                CalculateFullStampDuty(price);
                 System.Console.ReadLine();
             }
+        }
+
+        private static void CalculateFullStampDuty(double price)
+        {
+            var calculator = new StampDutyCalculator.Lib.StampDutyCalculator();
+
+            var bands = calculator.CalculateFullStampDuty(price);
+
+            foreach (var band in calculator.Bands)
+            {
+                var maxValue = (band.MaxValue == Double.MaxValue) ? "Max" : band.MaxValue.ToString();
+                System.Console.WriteLine($"Tax Band: {band.MinValue} - {maxValue}, Payable Sum: £ {band.PayableSum}, Percentage: {band.Percentage}, Tax: £ {band.Tax}");
+            }
+
+            System.Console.WriteLine($"============================================ The total stampduty to pay: £ {bands.Sum(x => x.Tax).ToString()}");
         }
     }
 }

@@ -49,6 +49,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\StampDutyCalculator.Lib\StampDutyCalculator.Lib.csproj">
+      <Project>{5221b558-d0cb-43e0-81f0-63e867fb6d7d}</Project>
+      <Name>StampDutyCalculator.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
