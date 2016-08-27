@@ -144,7 +144,7 @@ namespace StampDuty.Console
                 }
                 else
                 {
-                #region Leashold
+                #region Leasehold
                     System.Console.WriteLine("Property Price:");
                     price = Convert.ToDouble(System.Console.ReadLine());
                     System.Console.WriteLine($"Price: {price}");
