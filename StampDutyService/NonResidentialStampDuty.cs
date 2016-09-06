@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace StampDutyService
+{
+    public class NonResidentialStampDuty : StampDutyBase
+    {
+        protected override StampDutyBand[] GetBands()
+        {
+            return new StampDutyBand[3]{
+                     new StampDutyBand() {MinValue = 0.0, MaxValue = 150000.0, Percentage=0.0 },
+                     new StampDutyBand() {MinValue = 150000.0, MaxValue = 250000, Percentage=0.02 },
+                     new StampDutyBand() {MinValue = 250000.0, MaxValue = double.MaxValue, Percentage=0.05 }
+            };
+        }
+
+        protected override PropertyInfo GetPropertyInfo()
+        {
+            Console.WriteLine("Is property Freehold? (1) Freehold (2) Leasehold ");
+
+            var freehold = (Console.ReadLine() == "1");
+            
+            Console.WriteLine("Property Value:");
+
+            var propertyValue = Convert.ToDouble(Console.ReadLine());
+
+            NonResidentailPropertyInfo info = new NonResidentailPropertyInfo(propertyValue, freehold);
+
+            return info;
+        }
+    }
+}
