@@ -12,8 +12,8 @@ namespace StampDuty.Console
         static void Main(string[] args)
         {
             //StampDutyComplex_V0.Start();
-            StampDutyComplex_V1.Start();
-            //StampDutyComplex_V2.Start();
+            //StampDutyComplex_V1.Start();
+            StampDutyComplex_V2.Start();
         }
     }
 }

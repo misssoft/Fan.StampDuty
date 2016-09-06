@@ -24,23 +24,32 @@ namespace StampDutyService
 
             var joined = (Console.ReadLine() == "1");
 
-            ResidentailPropertyInfo  info = new ResidentailPropertyInfo(propertyValue, freehold, joined);
-            
-            return info;
-        }
-
-        protected override StampDutyBand[] GetBands()
-        {
             Console.WriteLine("Is property SecondHome?");
             Console.WriteLine("(1) FirstHome");
             Console.WriteLine("(2) SecondHome ");
 
             var secondHome = (Console.ReadLine() == "2");
 
-            if (secondHome)
+            ResidentailPropertyInfo  info = new ResidentailPropertyInfo(propertyValue, freehold, joined, secondHome);
+
+            var settings = info.GetType().GetProperties();
+
+            foreach (var setting in settings)
+            {
+                Console.WriteLine($"{setting.Name} : {setting.GetValue(info)}");
+            }
+
+            return info;
+        }
+
+        protected override StampDutyBand[] GetBands(PropertyInfo info)
+        {
+            var residentialInfo = info as ResidentailPropertyInfo;
+
+            if (residentialInfo.IsSecondHome)
             {
                 return new StampDutyBand[5]{
-                       new StampDutyBand() { MinValue = 0.0, MaxValue = 125000.0, Percentage = 0.03 },
+                     new StampDutyBand() { MinValue = 0.0, MaxValue = 125000.0, Percentage = 0.03 },
                      new StampDutyBand() { MinValue = 125000.0, MaxValue = 250000, Percentage = 0.05 },
                      new StampDutyBand() { MinValue = 250000.0, MaxValue = 925000.0, Percentage = 0.08 },
                      new StampDutyBand() { MinValue = 925000.0, MaxValue = 1500000.0, Percentage = 0.13 },

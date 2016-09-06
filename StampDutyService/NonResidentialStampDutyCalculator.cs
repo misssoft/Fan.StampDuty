@@ -8,7 +8,7 @@ namespace StampDutyService
 {
     public class NonResidentialStampDutyCalculator : StampDutyBaseCalculator
     {
-        protected override StampDutyBand[] GetBands()
+        protected override StampDutyBand[] GetBands(PropertyInfo info)
         {
             return new StampDutyBand[3]{
                      new StampDutyBand() {MinValue = 0.0, MaxValue = 150000.0, Percentage=0.0 },
@@ -28,6 +28,13 @@ namespace StampDutyService
 
             var freehold = (Console.ReadLine() == "1");
             NonResidentailPropertyInfo info = new NonResidentailPropertyInfo(propertyValue, freehold);
+
+            var settings = info.GetType().GetProperties();
+
+            foreach (var setting in settings)
+            {
+                Console.WriteLine($"{setting.Name} :  {setting.GetValue(info)}");
+            }
 
             return info;
         }

@@ -9,12 +9,12 @@ namespace StampDutyService
     public abstract class StampDutyBaseCalculator
     {
         protected abstract PropertyInfo GetPropertyInfo();
-        protected abstract StampDutyBand[] GetBands();
+        protected abstract StampDutyBand[] GetBands(PropertyInfo info);
 
         public IEnumerable<StampDutyBand> CalculateTax()
         {
                 var info = GetPropertyInfo();
-                var bands = GetBands();
+                var bands = GetBands(info);
                 return CalcuateCore(info, bands);
         }
 

@@ -29,10 +29,12 @@ namespace StampDutyService
     public class ResidentailPropertyInfo : PropertyInfo
     {
         public bool IsJoinedOwned { get; set; }
+        public bool IsSecondHome { get; set; }
 
-        public ResidentailPropertyInfo(double price, bool isFreehold, bool isJoinedOwned) : base(price, isFreehold)
+        public ResidentailPropertyInfo(double price, bool isFreehold, bool isJoinedOwned, bool isSecondHome) : base(price, isFreehold)
         {
             IsJoinedOwned = isJoinedOwned;
+            IsSecondHome = isSecondHome;
         }
     }
 
