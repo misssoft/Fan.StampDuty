@@ -10,20 +10,11 @@ namespace StampDutyService
     {
         public static StampDutyBaseCalculator CreateStampDuty(string type)
         {
-            switch (type)
-            {
-                case "R":
-                case "r":
-                    var residential = new ResidentialStampDutyCalculator();
-                    return residential;
-                case "N":
-                case "n":
-                    var nonResidential = new NonResidentialStampDutyCalculator();
-                    return nonResidential;
-                default:
-                    throw new Exception("Type is not supported");
-            }
-                
+            if (type == "1")
+                return new ResidentialStampDutyCalculator();
+            else
+                return new NonResidentialStampDutyCalculator();
         }
     }
 }
+

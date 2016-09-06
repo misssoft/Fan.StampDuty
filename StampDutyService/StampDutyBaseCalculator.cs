@@ -11,19 +11,21 @@ namespace StampDutyService
         protected abstract PropertyInfo GetPropertyInfo();
         protected abstract StampDutyBand[] GetBands();
 
-        public IEnumerable<StampDutyBand> Tax { get {
+        public IEnumerable<StampDutyBand> CalculateTax()
+        {
                 var info = GetPropertyInfo();
                 var bands = GetBands();
                 return CalcuateCore(info, bands);
-            } }
+        }
 
         public void PrintOutTax()
         {
-            foreach (var band in Tax)
+            var tax = CalculateTax();
+            foreach (var band in tax)
             {
                 System.Console.WriteLine(band.ToString());
             }
-            System.Console.WriteLine($"================================= The total stampduty to pay =========== £ {Tax.Sum(x => x.Tax).ToString()}");
+            System.Console.WriteLine($"================================= The total stampduty to pay =========== £ {tax.Sum(x => x.Tax).ToString()}");
         }
 
         private IEnumerable<StampDutyBand> CalcuateCore(PropertyInfo info, StampDutyBand[] propertyBands)

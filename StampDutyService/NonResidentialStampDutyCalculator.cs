@@ -19,7 +19,7 @@ namespace StampDutyService
 
         protected override PropertyInfo GetPropertyInfo()
         {
-            Console.WriteLine("Property Value:");
+            Console.WriteLine("Non-Residential Property Value:");
             var propertyValue = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Is property Freehold? (1) Freehold (2) Leasehold ");

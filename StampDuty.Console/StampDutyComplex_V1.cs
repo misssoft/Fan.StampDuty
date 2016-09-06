@@ -13,11 +13,12 @@ namespace StampDuty.Console
             while (true)
             {
                 System.Console.WriteLine("Residential or Non-Residential");
-                System.Console.WriteLine("R/r: Residential. ");
-                System.Console.WriteLine("N/n: Non-Residential");
+                System.Console.WriteLine("1: Residential. ");
+                System.Console.WriteLine("2: Non-Residential");
                 var type = System.Console.ReadLine();
-                var calculator = StampDutyService.StampDutyFactory.CreateStampDuty(type);
+                StampDutyService.StampDutyBaseCalculator calculator = StampDutyService.StampDutyFactory.CreateStampDuty(type);
                 calculator.PrintOutTax();
+                System.Console.WriteLine("Another Property...");
             }
         }
     }
