@@ -40,11 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NonResidentialStampDuty.cs" />
+    <Compile Include="NonResidentialStampDutyCalculator.cs" />
     <Compile Include="PropertyInfo.cs" />
-    <Compile Include="ResidentialStampDuty.cs" />
+    <Compile Include="ResidentialStampDutyCalculator.cs" />
     <Compile Include="StampDutyBand.cs" />
-    <Compile Include="StampDutyBase.cs" />
+    <Compile Include="StampDutyBaseCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StampDutyFactory.cs" />
   </ItemGroup>

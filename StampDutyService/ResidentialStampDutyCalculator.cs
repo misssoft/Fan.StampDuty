@@ -6,19 +6,22 @@ using System.Threading.Tasks;
 
 namespace StampDutyService
 {
-    public class ResidentialStampDuty : StampDutyBase
+    public class ResidentialStampDutyCalculator : StampDutyBaseCalculator
     {
         protected override PropertyInfo GetPropertyInfo()
         {
-            Console.WriteLine("Is property Freehold? (1) Freehold (2) Leasehold ");
-
-            var freehold = (Console.ReadLine() == "1");
 
             Console.WriteLine("Property Value:");
-
             var propertyValue = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine("Is property Joined Owned? (1) Joined (2) Not Joined ");
+            Console.WriteLine("Is property Freehold?");
+            Console.WriteLine("(1) Freehold  ");
+            Console.WriteLine("(2) Leasehold ");
+            var freehold = (Console.ReadLine() == "1");
+
+            Console.WriteLine("Is property Joined Owned? ");
+            Console.WriteLine("(1) Joined ");
+            Console.WriteLine("(2) Not Joined ");
 
             var joined = (Console.ReadLine() == "1");
 
@@ -29,7 +32,9 @@ namespace StampDutyService
 
         protected override StampDutyBand[] GetBands()
         {
-            Console.WriteLine("Is property SecondHome? (1) FirstHome (2) SecondHome ");
+            Console.WriteLine("Is property SecondHome?");
+            Console.WriteLine("(1) FirstHome");
+            Console.WriteLine("(2) SecondHome ");
 
             var secondHome = (Console.ReadLine() == "2");
 

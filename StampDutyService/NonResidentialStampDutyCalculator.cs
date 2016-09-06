@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StampDutyService
 {
-    public class NonResidentialStampDuty : StampDutyBase
+    public class NonResidentialStampDutyCalculator : StampDutyBaseCalculator
     {
         protected override StampDutyBand[] GetBands()
         {
@@ -19,14 +19,14 @@ namespace StampDutyService
 
         protected override PropertyInfo GetPropertyInfo()
         {
-            Console.WriteLine("Is property Freehold? (1) Freehold (2) Leasehold ");
-
-            var freehold = (Console.ReadLine() == "1");
-            
             Console.WriteLine("Property Value:");
-
             var propertyValue = Convert.ToDouble(Console.ReadLine());
 
+            Console.WriteLine("Is property Freehold? (1) Freehold (2) Leasehold ");
+            Console.WriteLine("(1) Freehold");
+            Console.WriteLine("(2) Leasehold");
+
+            var freehold = (Console.ReadLine() == "1");
             NonResidentailPropertyInfo info = new NonResidentailPropertyInfo(propertyValue, freehold);
 
             return info;

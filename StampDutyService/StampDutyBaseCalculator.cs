@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StampDutyService
 {
-    public abstract class StampDutyBase
+    public abstract class StampDutyBaseCalculator
     {
         protected abstract PropertyInfo GetPropertyInfo();
 
@@ -24,10 +24,9 @@ namespace StampDutyService
 
             foreach (var band in tax)
             {
-                var maxValue = (band.MaxValue == Double.MaxValue) ? "Max" : band.MaxValue.ToString();
-                System.Console.WriteLine($"Tax Band: {band.MinValue} - {maxValue}, Payable Sum: £ {band.PayableSum}, Percentage: {band.Percentage}, Tax: £ {band.Tax}");
+                System.Console.WriteLine(band.ToString());
             }
-            System.Console.WriteLine($"============================================ The total stampduty to pay: £ {tax.Sum(x => x.Tax).ToString()}");
+            System.Console.WriteLine($"================================= The total stampduty to pay =========== £ {tax.Sum(x => x.Tax).ToString()}");
         }
 
         private IEnumerable<StampDutyBand> CalcuateCore(PropertyInfo info, StampDutyBand[] propertyBands)

@@ -22,8 +22,7 @@ namespace StampDutyService
 
         public override string ToString()
         {
-            return ($"Tax Band: {MinValue} - {MaxValue}, Payable Sum: £ {PayableSum}, Percentage: {Percentage}, Tax: £ {Tax}");
+                return ($"Tax Band: {MinValue} - {MaxValue}, Payable Sum: £ {PayableSum}, Percentage: {Percentage}, Tax: £ {Tax}");
         }
-
     }
 }
