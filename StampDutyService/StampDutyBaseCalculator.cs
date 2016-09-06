@@ -9,29 +9,27 @@ namespace StampDutyService
     public abstract class StampDutyBaseCalculator
     {
         protected abstract PropertyInfo GetPropertyInfo();
-
         protected abstract StampDutyBand[] GetBands();
 
-        public IEnumerable<StampDutyBand> CalculateTax() {
-            var info = GetPropertyInfo();
-            var bands = GetBands();
-            return CalcuateCore(info, bands);
-        }
+        public IEnumerable<StampDutyBand> Tax { get {
+                var info = GetPropertyInfo();
+                var bands = GetBands();
+                return CalcuateCore(info, bands);
+            } }
 
-        public void PrintTax()
+        public void PrintOutTax()
         {
-            var tax = CalculateTax();
-
-            foreach (var band in tax)
+            foreach (var band in Tax)
             {
                 System.Console.WriteLine(band.ToString());
             }
-            System.Console.WriteLine($"================================= The total stampduty to pay =========== £ {tax.Sum(x => x.Tax).ToString()}");
+            System.Console.WriteLine($"================================= The total stampduty to pay =========== £ {Tax.Sum(x => x.Tax).ToString()}");
         }
 
         private IEnumerable<StampDutyBand> CalcuateCore(PropertyInfo info, StampDutyBand[] propertyBands)
         {
             var price = info.Price;
+
             var payBands = new List<StampDutyBand>();
 
             var bands = propertyBands.Where(x => x.MinValue < price).ToList();

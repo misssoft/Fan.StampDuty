@@ -17,7 +17,7 @@ namespace StampDuty.Console
                 System.Console.WriteLine("N/n: Non-Residential");
                 var type = System.Console.ReadLine();
                 var calculator = StampDutyService.StampDutyFactory.CreateStampDuty(type);
-                calculator.PrintTax();
+                calculator.PrintOutTax();
             }
         }
     }
