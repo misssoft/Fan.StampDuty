@@ -16,21 +16,21 @@ namespace StampDutyService
             Console.WriteLine("Is property Freehold?");
             Console.WriteLine("(1) Freehold  ");
             Console.WriteLine("(2) Leasehold ");
-            var freehold = (Console.ReadLine() == "1");
+            var freehold = Convert.ToInt16(Console.ReadLine());
 
             Console.WriteLine("Is property Joined Owned? ");
             Console.WriteLine("(1) Joined ");
             Console.WriteLine("(2) Not Joined ");
 
-            var joined = (Console.ReadLine() == "1");
+            var joined = Convert.ToInt16(Console.ReadLine());
 
             Console.WriteLine("Is property SecondHome?");
             Console.WriteLine("(1) FirstHome");
             Console.WriteLine("(2) SecondHome ");
 
-            var secondHome = (Console.ReadLine() == "2");
+            var secondHome = Convert.ToInt16(Console.ReadLine());
 
-            ResidentailPropertyInfo  info = new ResidentailPropertyInfo(propertyValue, freehold, joined, secondHome);
+            ResidentailPropertyInfo  info = new ResidentailPropertyInfo(propertyValue, freehold == 1, joined== 1, secondHome == 1);
 
             var settings = info.GetType().GetProperties();
 
@@ -55,15 +55,12 @@ namespace StampDutyService
                      new StampDutyBand() { MinValue = 925000.0, MaxValue = 1500000.0, Percentage = 0.13 },
                      new StampDutyBand() { MinValue = 1500000.0, MaxValue = double.MaxValue, Percentage = 0.15 }};
              }
-           else
-            {
-                return new StampDutyBand[5]{
-                     new StampDutyBand() {MinValue = 0.0, MaxValue = 125000.0, Percentage=0.0 },
-                     new StampDutyBand() {MinValue = 125000.0, MaxValue = 250000, Percentage=0.02 },
-                     new StampDutyBand() {MinValue = 250000.0, MaxValue = 925000.0, Percentage=0.05 },
-                     new StampDutyBand() {MinValue = 925000.0, MaxValue = 1500000.0, Percentage=0.10 },
-                     new StampDutyBand() {MinValue = 1500000.0, MaxValue = double.MaxValue, Percentage=0.12 }};
-            }
+            return new StampDutyBand[5]{
+                new StampDutyBand() {MinValue = 0.0, MaxValue = 125000.0, Percentage=0.0 },
+                new StampDutyBand() {MinValue = 125000.0, MaxValue = 250000, Percentage=0.02 },
+                new StampDutyBand() {MinValue = 250000.0, MaxValue = 925000.0, Percentage=0.05 },
+                new StampDutyBand() {MinValue = 925000.0, MaxValue = 1500000.0, Percentage=0.10 },
+                new StampDutyBand() {MinValue = 1500000.0, MaxValue = double.MaxValue, Percentage=0.12 }};
         }
     }
 }

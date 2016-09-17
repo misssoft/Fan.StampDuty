@@ -10,14 +10,12 @@ namespace StampDutyService
     {
         protected abstract PropertyInfo GetPropertyInfo();
         protected abstract StampDutyBand[] GetBands(PropertyInfo info);
-
         public IEnumerable<StampDutyBand> CalculateTax()
         {
                 var info = GetPropertyInfo();
                 var bands = GetBands(info);
                 return CalcuateCore(info, bands);
         }
-
         public void PrintOutTax()
         {
             var tax = CalculateTax();
@@ -27,7 +25,6 @@ namespace StampDutyService
             }
             System.Console.WriteLine($"================================= The total stampduty to pay =========== £ {tax.Sum(x => x.Tax).ToString()}");
         }
-
         private IEnumerable<StampDutyBand> CalcuateCore(PropertyInfo info, StampDutyBand[] propertyBands)
         {
             var price = info.Price;

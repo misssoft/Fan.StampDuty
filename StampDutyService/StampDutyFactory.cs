@@ -12,8 +12,7 @@ namespace StampDutyService
         {
             if (type == "1")
                 return new ResidentialStampDutyCalculator();
-            else
-                return new NonResidentialStampDutyCalculator();
+            return new NonResidentialStampDutyCalculator();
         }
     }
 }

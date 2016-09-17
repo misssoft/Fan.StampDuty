@@ -31,11 +31,6 @@ namespace StampDutyService
 
             var settings = info.GetType().GetProperties();
 
-            foreach (var setting in settings)
-            {
-                Console.WriteLine($"{setting.Name} :  {setting.GetValue(info)}");
-            }
-
             return info;
         }
     }

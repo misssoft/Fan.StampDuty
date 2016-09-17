@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StampDutyService;
 
 namespace StampDuty.Console
 {
@@ -16,9 +17,17 @@ namespace StampDuty.Console
                 System.Console.WriteLine("1: Residential. ");
                 System.Console.WriteLine("2: Non-Residential");
                 var type = System.Console.ReadLine();
-                var calculator = StampDutyService.StampDutyFactory.CreateStampDuty(type);
-                calculator.PrintOutTax();
-                System.Console.WriteLine("Another Property...");
+                if (type == "1")
+                {
+                    var calculator = new ResidentialStampDutyCalculator();
+                    calculator.PrintOutTax();
+                }
+                else
+                {
+                    var calculator = new NonResidentialStampDutyCalculator();
+                    calculator.PrintOutTax();
+                }
+               System.Console.WriteLine("Another Property...");
             }
         }
     }
