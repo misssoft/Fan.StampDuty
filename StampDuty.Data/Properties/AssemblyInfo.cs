@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("StampDutyHelper")]
+[assembly: AssemblyTitle("StampDuty.Data")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("StampDutyHelper")]
+[assembly: AssemblyProduct("StampDuty.Data")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("54665101-ee59-4ff5-9535-6286764627eb")]
+[assembly: Guid("3e8c7aad-349d-47b9-81fe-014956833743")]
 
 // Version information for an assembly consists of the following four values:
 //

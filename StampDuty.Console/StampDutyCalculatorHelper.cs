@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StampDuty.Console
+﻿namespace StampDuty.Console
 {
-    public static class StampDutyHelper
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Common.Data;
+    public static class StampDutyCalculatorHelper
     {
         public static IEnumerable<StampDutyBand> CalculateTax(double price, StampDutyBand[] appliedDutyBands)
         {
@@ -28,16 +26,6 @@ namespace StampDuty.Console
                 payBands.Add(band);
             }
             return payBands;
-        }
-
-        public static void PrintTax(IEnumerable<StampDutyBand> tax)
-        {
-            var stampDutyBands = tax as IList<StampDutyBand> ?? tax.ToList();
-            foreach (var band in stampDutyBands)
-            {
-                System.Console.WriteLine(band.ToString());
-            }
-            System.Console.WriteLine($"================================= The total stampduty to pay =========== £ {stampDutyBands.Sum(x => x.Tax).ToString()}");
         }
 
         public static IEnumerable<StampDutyBand> CalculateResidentialFirstHome(double price)

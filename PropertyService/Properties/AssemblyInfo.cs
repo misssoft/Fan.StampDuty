@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("StampDutyService.Tests")]
+[assembly: AssemblyTitle("StampDuty.PropertyService")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("StampDutyService.Tests")]
+[assembly: AssemblyProduct("StampDuty.PropertyService")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a74a3e8c-836a-466e-ab30-f4603c575284")]
+[assembly: Guid("1b008182-3bd5-4054-883d-00eb81d9c1d4")]
 
 // Version information for an assembly consists of the following four values:
 //
