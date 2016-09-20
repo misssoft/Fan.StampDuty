@@ -28,7 +28,7 @@
             return payBands;
         }
 
-        public static IEnumerable<StampDutyBand> CalculateResidentialFirstHome(double price)
+        public static IEnumerable<StampDutyBand> CalculateResidentialHome(double price)
         {
             var firsthomeBands = new StampDutyBand[5]{
                 new StampDutyBand() {MinValue = 0.0, MaxValue = 125000.0, Percentage=0.0 },
