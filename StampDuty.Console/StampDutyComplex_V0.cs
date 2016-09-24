@@ -1,4 +1,6 @@
-﻿namespace StampDuty.Console
+﻿using StampDuty.Common.Data;
+
+namespace StampDuty.Console
 {
     using System;
     public static class StampDutyComplex_V0
@@ -64,6 +66,9 @@
                                         Console.WriteLine($"TransactionDate: {transactionDate}");
                                         Console.WriteLine($"Residential: {isResidential}");
                                         Console.WriteLine($"Freehold: {isFreehold}");
+
+                                        var result = StampDutyCalculatorHelper.CalculateResidentialSecondHome(price);
+                                        StampDutyHelper.PrintTax(result);
                                         #endregion
                                     }
                                     else
@@ -78,6 +83,9 @@
                                         Console.WriteLine($"TransactionDate: {transactionDate}");
                                         Console.WriteLine($"Residential: {isResidential}");
                                         Console.WriteLine($"Freehold: {isFreehold}");
+
+                                        var result = StampDutyCalculatorHelper.CalculateResidentialSecondHome(price);
+                                        StampDutyHelper.PrintTax(result);
                                         #endregion
                                     }
                                     #endregion
@@ -93,6 +101,10 @@
                                     Console.WriteLine($"TransactionDate: {transactionDate}");
                                     Console.WriteLine($"Residential: {isResidential}");
                                     Console.WriteLine($"Freehold: {isFreehold}");
+
+                                    var result = StampDutyCalculatorHelper.CalculateResidentialHome(price);
+                                    StampDutyHelper.PrintTax(result);
+
                                     #endregion
                                 }
                                 #endregion
@@ -107,6 +119,9 @@
                                 Console.WriteLine($"TransactionDate: {transactionDate}");
                                 Console.WriteLine($"Residential: {isResidential}");
                                 Console.WriteLine($"Freehold: {isFreehold}");
+
+                                var result = StampDutyCalculatorHelper.CalculateResidentialHome(price);
+                                StampDutyHelper.PrintTax(result);
                                 #endregion
                             }
                             #endregion
@@ -120,6 +135,9 @@
                             Console.WriteLine($"TransactionDate: {transactionDate}");
                             Console.WriteLine($"Residential: {isResidential}");
                             Console.WriteLine($"Freehold: {isFreehold}");
+
+                            var result = StampDutyCalculatorHelper.CalculateResidentialHome(price);
+                            StampDutyHelper.PrintTax(result);
                             #endregion
                         }
                         #endregion
@@ -132,6 +150,9 @@
                         Console.WriteLine($"Price: {price}");
                         Console.WriteLine($"Residential: {isResidential}");
                         Console.WriteLine($"Freehold: {isFreehold}");
+
+                        var result = StampDutyCalculatorHelper.CalculateNonResidentialPropertyFreehold(price);
+                        StampDutyHelper.PrintTax(result);
                         #endregion   
                     }
                     #endregion
