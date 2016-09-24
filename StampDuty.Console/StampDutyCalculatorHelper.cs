@@ -37,7 +37,7 @@
                 new StampDutyBand() {MinValue = 925000.0, MaxValue = 1500000.0, Percentage=0.10 },
                 new StampDutyBand() {MinValue = 1500000.0, MaxValue = double.MaxValue, Percentage=0.12 }};
 
-            return CalculateTax(Convert.ToDouble(price),firsthomeBands);
+            return CalculateTax(price,firsthomeBands);
         }
 
         public static IEnumerable<StampDutyBand> CalculateResidentialSecondHome(double price)

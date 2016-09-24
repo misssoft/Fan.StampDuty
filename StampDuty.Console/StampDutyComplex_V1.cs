@@ -51,7 +51,7 @@ namespace StampDuty.Console
                     else
                     {
                         var value = residentialPropertyInfo.Find(x => x.Key == "Value").Value.ToString();
-                        var result = StampDutyCalculatorHelper.CalculateResidentialFirstHome(Convert.ToDouble(value));
+                        var result = StampDutyCalculatorHelper.CalculateResidentialHome(Convert.ToDouble(value));
                         residentialPropertyInfo.Add(new KeyValuePair<string, string>("Ownership", "No"));
                         StampDutyHelper.PrintTax(result);
                     }
