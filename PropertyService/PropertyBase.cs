@@ -20,11 +20,8 @@ namespace StampDuty.PropertyService
         private IEnumerable<StampDutyBand> CalcuateCore(StampDutyBand[] propertyBands)
         {
             var price = Price;
-
             var payBands = new List<StampDutyBand>();
-
             var bands = propertyBands.Where(x => x.MinValue < price).ToList();
-
             foreach (var band in bands)
             {
                 if (price < band.MaxValue)
@@ -35,10 +32,8 @@ namespace StampDuty.PropertyService
                 {
                     band.PayableSum = band.MaxValue - band.MinValue;
                 }
-
                 payBands.Add(band);
             }
-
             return payBands;
         }
     }

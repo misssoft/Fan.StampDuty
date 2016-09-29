@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1B008182-3BD5-4054-883D-00EB81D9C1D4}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{DEDF44A2-CF2B-4763-9684-04F797E0DD4D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StampDuty.PropertyService</RootNamespace>
-    <AssemblyName>StampDuty.PropertyService</AssemblyName>
+    <RootNamespace>TaxReport.Console</RootNamespace>
+    <AssemblyName>TaxReport.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -40,16 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NonResidentialProperty.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropertyBase.cs" />
-    <Compile Include="ResidentialProperty.cs" />
-    <Compile Include="StampDutyCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StampDuty.Common.Data\StampDuty.Common.Data.csproj">
-      <Project>{122d8ebc-72e8-48fa-9a60-f1711569e73a}</Project>
-      <Name>StampDuty.Common.Data</Name>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TaxReport.Service\TaxReport.Service.csproj">
+      <Project>{69527866-3434-42dc-80d1-466a5687155c}</Project>
+      <Name>TaxReport.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
