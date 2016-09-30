@@ -34,5 +34,22 @@ namespace StampDuty.Console
             }
             return StampDutyCalculatorHelper.CalculateResidentialHome(price);
         }
+
+        public static IEnumerable<StampDutyBand> CalculateStampDuty(double price, bool isSecondHome, bool isReplacing, bool within3years)
+        {
+            if (isSecondHome)
+            {
+                if (isReplacing)
+                {
+                    if (within3years)
+                    {
+                        return StampDutyCalculatorHelper.CalculateResidentialHome(price);
+                    }
+                    return StampDutyCalculatorHelper.CalculateResidentialSecondHome(price);
+                }
+                return StampDutyCalculatorHelper.CalculateResidentialSecondHome(price);
+            }
+            return StampDutyCalculatorHelper.CalculateResidentialHome(price);
+        }
     }
 }

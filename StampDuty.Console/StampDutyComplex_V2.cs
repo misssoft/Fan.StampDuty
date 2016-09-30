@@ -23,41 +23,49 @@ namespace StampDuty.Console
                 if (type == 1)
                 {
                     var property= new ResidentialProperty();
-                    Console.WriteLine("What is the value of the property?");
-                    property.Price = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine("Is property Freehold?");
-                    Console.WriteLine("(1) Freehold  ");
-                    Console.WriteLine("(2) Leasehold ");
-                    property.IsFreehold = StampDutyHelper.GetInputFromConsole(1, 2, msg) == 1;
-
-                    Console.WriteLine("Is property Joined Owned? ");
-                    Console.WriteLine("(1) Joined ");
-                    Console.WriteLine("(2) Not Joined ");
-                    property.IsJoinedOwned = StampDutyHelper.GetInputFromConsole(1, 2, msg) == 1;
-
-                    Console.WriteLine("Is property second home?");
-                    Console.WriteLine("(1) FirstHome");
-                    Console.WriteLine("(2) SecondHome ");
-                    property.IsAdditionalProperty = StampDutyHelper.GetInputFromConsole(1, 2, msg) == 2;
-
+                    GetResidentialPropertyValue(property);
                     var stampDuty = property.CalculateStampDuty();
                     StampDutyHelper.PrintTax(stampDuty);
                 }
                 else
                 {
                     var property = new NonResidentialProperty();
-                    Console.WriteLine("What is the value of the property?");
-                    property.Price = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine("Is property Freehold?");
-                    Console.WriteLine("(1) Freehold  ");
-                    Console.WriteLine("(2) Leasehold ");
-                    property.IsFreehold = StampDutyHelper.GetInputFromConsole(1, 2, msg) == 1;
-
+                    GetNonResidentialPropertyValue(property);
                     var stampDuty = property.CalculateStampDuty();
                     StampDutyHelper.PrintTax(stampDuty);
                 }
                System.Console.WriteLine("Another Property...");
             }
+        }
+
+        private static void GetNonResidentialPropertyValue(NonResidentialProperty property)
+        {
+            Console.WriteLine("What is the value of the property?");
+            property.Price = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Is property Freehold?");
+            Console.WriteLine("(1) Freehold  ");
+            Console.WriteLine("(2) Leasehold ");
+            //property.IsFreehold = StampDutyHelper.GetInputFromConsole(1, 2, msg) == 1;
+        }
+
+        private static void GetResidentialPropertyValue(ResidentialProperty property)
+        {
+            Console.WriteLine("What is the value of the property?");
+            property.Price = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Is property Freehold?");
+            Console.WriteLine("(1) Freehold  ");
+            Console.WriteLine("(2) Leasehold ");
+            //property.IsFreehold = StampDutyHelper.GetInputFromConsole(1, 2, msg) == 1;
+
+            Console.WriteLine("Is property Joined Owned? ");
+            Console.WriteLine("(1) Joined ");
+            Console.WriteLine("(2) Not Joined ");
+            //property.IsJoinedOwned = StampDutyHelper.GetInputFromConsole(1, 2, msg) == 1;
+
+            Console.WriteLine("Is property second home?");
+            Console.WriteLine("(1) FirstHome");
+            Console.WriteLine("(2) SecondHome ");
+            //property.IsAdditionalProperty = StampDutyHelper.GetInputFromConsole(1, 2, msg) == 2;
         }
     }
 }

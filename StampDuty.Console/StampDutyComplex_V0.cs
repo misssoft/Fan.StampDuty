@@ -151,7 +151,7 @@ namespace StampDuty.Console
                         Console.WriteLine($"Residential: {isResidential}");
                         Console.WriteLine($"Freehold: {isFreehold}");
 
-                        var result = StampDutyCalculatorHelper.CalculateNonResidentialPropertyFreehold(price);
+                        var result = StampDutyCalculatorHelper.CalculateNonResidentialProperty(price);
                         StampDutyHelper.PrintTax(result);
                         #endregion   
                     }
@@ -159,7 +159,7 @@ namespace StampDuty.Console
                 }
                 else
                 {
-                    #region Leasehold
+                #region Leasehold
                     Console.WriteLine("Residential or Non-residential");
                     Console.WriteLine("1. Residential");
                     Console.WriteLine("2. Non-residential");

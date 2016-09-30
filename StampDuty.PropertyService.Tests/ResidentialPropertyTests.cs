@@ -41,7 +41,7 @@ namespace StampDuty.PropertyService.Tests
 
         [TestCase(0.0, 0.0)]
         [TestCase(125000.0, 0.0)]
-        [TestCase(250000.0, 500.0)]
+        [TestCase(250000.0, 2500.0)]
         [TestCase(300000.0, 5000.0)]
         [TestCase(500000.0, 15000.0)]
         [TestCase(1000000.0, 43750.0)]

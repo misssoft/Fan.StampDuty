@@ -51,7 +51,7 @@
             return CalculateTax(price,secondhomeBands);
         }
 
-        public static IEnumerable<StampDutyBand> CalculateNonResidentialPropertyFreehold(double price)
+        public static IEnumerable<StampDutyBand> CalculateNonResidentialProperty(double price)
         {
             var nonresidentialBands = new StampDutyBand[3]{
                      new StampDutyBand() {MinValue = 0.0, MaxValue = 150000.0, Percentage=0.0 },
@@ -60,17 +60,6 @@
             };
 
             return CalculateTax(price,nonresidentialBands);
-        }
-
-        public static IEnumerable<StampDutyBand> CalculateNonResidentialPropertyLeasehold(double price)
-        {
-            var nonresidentialBands = new StampDutyBand[3]{
-                     new StampDutyBand() {MinValue = 0.0, MaxValue = 100000.0, Percentage=0.0 },
-                     new StampDutyBand() {MinValue = 100000.0, MaxValue = 200000, Percentage=0.02 },
-                     new StampDutyBand() {MinValue = 200000.0, MaxValue = double.MaxValue, Percentage=0.05 }
-            };
-
-            return CalculateTax(price, nonresidentialBands);
         }
     }
 }

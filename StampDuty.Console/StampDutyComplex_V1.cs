@@ -28,13 +28,13 @@ namespace StampDuty.Console
                     Console.WriteLine("(1) Freehold  ");
                     Console.WriteLine("(2) Leasehold ");
                     var freehold = StampDutyHelper.GetInputFromConsole(1, 2, msg);
-                    residentialPropertyInfo.Add(freehold ==1 ? new KeyValuePair<string, string>("Holding", "Freehold") : new KeyValuePair<string, string>("Holding", "Leasehold"));
+                    residentialPropertyInfo.Add(freehold == 1 ? new KeyValuePair<string, string>("Holding", "Freehold") : new KeyValuePair<string, string>("Holding", "Leasehold"));
 
                     Console.WriteLine("Is property Joined Owned? ");
                     Console.WriteLine("(1) Joined ");
                     Console.WriteLine("(2) Not Joined ");
                     var joined = StampDutyHelper.GetInputFromConsole(1, 2, msg);
-                    residentialPropertyInfo.Add(joined == 1? new KeyValuePair<string, string>("Ownership", "Joined") : new KeyValuePair<string, string>("Ownership", "Sole Owner"));
+                    residentialPropertyInfo.Add(joined == 1 ? new KeyValuePair<string, string>("Ownership", "Joined") : new KeyValuePair<string, string>("Ownership", "Sole Owner"));
 
                     Console.WriteLine("Is property SecondHome?");
                     Console.WriteLine("(1) FirstHome");
@@ -69,20 +69,12 @@ namespace StampDuty.Console
                     Console.WriteLine("(2) Leasehold");
 
                     var freehold = StampDutyHelper.GetInputFromConsole(1, 2, msg);
-                    if (freehold == 1)
-                    {
-                        nonresidentialPropertyInfo.Add(new KeyValuePair<string, string>("Holding", "Freehold"));
-                        var value = nonresidentialPropertyInfo.Find(x => x.Key == "Value").Value.ToString();
-                        var result = StampDutyCalculatorHelper.CalculateNonResidentialPropertyFreehold(Convert.ToDouble(value));
-                        StampDutyHelper.PrintTax(result);
-                    }
-                    else
-                    {
-                        nonresidentialPropertyInfo.Add(new KeyValuePair<string, string>("Holding", "Leasehold"));
-                        var value = nonresidentialPropertyInfo.Find(x => x.Key == "Value").Value.ToString();
-                        var result = StampDutyCalculatorHelper.CalculateNonResidentialPropertyLeasehold(Convert.ToDouble(value));
-                        StampDutyHelper.PrintTax(result);
-                    }
+
+                    nonresidentialPropertyInfo.Add(new KeyValuePair<string, string>("Holding", "Leasehold"));
+                    var value = nonresidentialPropertyInfo.Find(x => x.Key == "Value").Value.ToString();
+                    var result = StampDutyCalculatorHelper.CalculateNonResidentialProperty(Convert.ToDouble(value));
+                    StampDutyHelper.PrintTax(result);
+
                 }
                 Console.WriteLine("Another Property...");
             }
